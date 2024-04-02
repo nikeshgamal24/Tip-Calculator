@@ -1,4 +1,9 @@
 import { useState } from "react";
+import Reset from "./components/Reset"
+import TotalReceipt from "./components/TotalReceipt";
+import TipPercentage from "./components/TipPercentage";
+import Question from "./components/Question";
+import TotalBill from "./components/TotalBill";
 
 export default function App() {
   const [billAmount, setBillAmount] = useState(0);
@@ -47,55 +52,11 @@ export default function App() {
   );
 }
 
-function TotalBill({ questionText, billAmount, setBillAmount }) {
-  return (
-    <>
-      <div>
-        {questionText}
-        <span>
-          <input
-            type="number"
-            value={billAmount}
-            onChange={(e) => setBillAmount(e.target.value)}
-          />
-        </span>
-      </div>
-    </>
-  );
-}
-function Question({ questionText, children }) {
-  return (
-    <>
-      <div>
-        {questionText}
-        <span>{children}</span>
-      </div>
-    </>
-  );
-}
 
-function TipPercentage({ tipPercentage, setTipPercentage }) {
-  return (
-    <select
-      value={tipPercentage}
-      onChange={(e) => setTipPercentage(Number(e.target.value))}
-    >
-      <option value="0">Dissatisfied (0%)</option>
-      <option value="5">It was Okay (5%)</option>
-      <option value="10">It was good (10%)</option>
-      <option value="20">Absolutely Amazing (20%)</option>
-    </select>
-  );
-}
 
-function TotalReceipt({ tipAmount, billAmount, totalBillAmount }) {
-  return (
-    <div>
-      <p>{`You pay $${totalBillAmount} ($${billAmount} + $${tipAmount} tip)`}</p>
-    </div>
-  );
-}
 
-function Reset({ onResetState }) {
-  return <button onClick={onResetState}>Reset</button>;
-}
+
+
+
+
+
